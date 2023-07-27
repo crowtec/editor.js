@@ -252,7 +252,9 @@ export default class Toolbar extends Module<ToolbarNodes> {
     const blockRenderedElementPaddingTop = parseInt(renderedContentStyle.paddingTop, 10);
     const blockHeight = targetBlockHolder.offsetHeight;
 
-    let toolbarY, toolbarX;
+    const contentBlockHolder: HTMLElement = block.holder.querySelector('.ce-block__content');
+
+    let toolbarY: number, toolbarX: number;
 
     /**
      * On mobile — Toolbar at the bottom of Block
@@ -260,12 +262,13 @@ export default class Toolbar extends Module<ToolbarNodes> {
      *              To do that, we compute the block offset and the padding-top of the plugin content
      */
     if (isMobile) {
-      toolbarY = targetBlockHolder.offsetTop + blockHeight;
-      toolbarX = targetBlockHolder.offsetLeft;
+      toolbarY = targetBlockHolder.offsetTop + blockHeight;      
     } else {
       toolbarY = targetBlockHolder.offsetTop + blockRenderedElementPaddingTop;
-      toolbarX = targetBlockHolder.offsetLeft;
     }
+
+    toolbarX = targetBlockHolder.offsetLeft;
+    //toolbarX = contentBlockHolder?.offsetLeft;
 
     /**
      * Move Toolbar to the Top coordinate of Block

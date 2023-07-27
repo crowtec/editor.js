@@ -11,7 +11,9 @@
 .ce-block {
   animation: fade-in 300ms ease;
   animation-fill-mode: initial;
-
+  max-width: var(--content-width);
+  margin: 0 auto;
+  
   &:first-of-type {
     margin-top: 0;
   }
@@ -39,8 +41,8 @@
 
   &__content {
     position: relative;
-    max-width: var(--content-width);
-    margin: 0 auto;
+    /*max-width: var(--content-width);
+    margin: 0 auto;*/
     transition: background-color 150ms ease;
   }
 

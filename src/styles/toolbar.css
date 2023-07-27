@@ -5,8 +5,8 @@
   top: 0;
   transition: opacity 100ms ease;
   will-change: opacity, top;
-
   display: none;
+  max-width: var(--content-width);
 
   &--opened {
     display: block;

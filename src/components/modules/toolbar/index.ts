@@ -252,7 +252,7 @@ export default class Toolbar extends Module<ToolbarNodes> {
     const blockRenderedElementPaddingTop = parseInt(renderedContentStyle.paddingTop, 10);
     const blockHeight = targetBlockHolder.offsetHeight;
 
-    let toolbarY;
+    let toolbarY, toolbarX;
 
     /**
      * On mobile — Toolbar at the bottom of Block
@@ -261,15 +261,17 @@ export default class Toolbar extends Module<ToolbarNodes> {
      */
     if (isMobile) {
       toolbarY = targetBlockHolder.offsetTop + blockHeight;
+      toolbarX = targetBlockHolder.offsetLeft;
     } else {
       toolbarY = targetBlockHolder.offsetTop + blockRenderedElementPaddingTop;
+      toolbarX = targetBlockHolder.offsetLeft;
     }
 
     /**
      * Move Toolbar to the Top coordinate of Block
      */
     this.nodes.wrapper.style.top = `${Math.floor(toolbarY)}px`;
-
+    this.nodes.wrapper.style.left = `${Math.floor(toolbarX)}px`;
     /**
      * Do not show Block Tunes Toggler near single and empty block
      */
